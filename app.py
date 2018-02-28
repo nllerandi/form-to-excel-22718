@@ -14,28 +14,22 @@ def home():
 def fios():
     return render_template("fios.html")
 
+@app.route('/fiosForm', methods=['POST'])
+def fiosForm():
+    someData = request.form["someData"]
+    # Create a Pandas dataframe from the data.
+    df = pd.DataFrame({'Data': [someData]})
 
-@app.route('/fiosUpload', methods=['POST'])
-def fiosUpload():
-    fiosFile = request.files['fiosFile']
+    # Create a Pandas Excel writer using XlsxWriter as the engine.
+    writer = pd.ExcelWriter('pandas_simple.xlsx', engine='xlsxwriter')
 
-    tempfile_path = tempfile.NamedTemporaryFile().name
-    fiosFile.save(tempfile_path)
+    # Convert the dataframe to an XlsxWriter Excel object.
+    df.to_excel(writer, sheet_name='Sheet1')
 
-    # make sure these are getting deleted - or add delete command
-    # print(tempfile_path)
+    # Close the Pandas Excel writer and output the Excel file.
+    writer.save()
 
-    # pandas
-    # sheet = pd.read_csv(tempfile_path)
-
-    data = open(tempfile_path).read()
-    rows = data.split('\n')
-    split_data = []
-    for row in rows:
-        split_row = row.split(',')
-        split_data.append(split_row)
-
-    return str(split_data)
+    return "excel saved on server"
 
 if __name__ == '__main__':
     app.run()
