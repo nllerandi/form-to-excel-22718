@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, send_file
 import pandas as pd
 import numpy as np
 import tempfile
@@ -8,7 +8,6 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('home.html')
-
 
 @app.route('/fios')
 def fios():
@@ -29,7 +28,11 @@ def fiosForm():
     # Close the Pandas Excel writer and output the Excel file.
     writer.save()
 
-    return "excel saved on server"
+    return render_template("downloads.html")
+
+@app.route("/return-file/")
+def return_file():
+    return send_file("pandas_simple.xlsx", attachment_filename="cmp.xlsx")
 
 if __name__ == '__main__':
     app.run()
