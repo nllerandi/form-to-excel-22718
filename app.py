@@ -18,11 +18,19 @@ def fiosForm():
     campaignType = request.form["campaignType"]
     quarter = request.form["quarter"]
     browsers = request.form["browsers"]
+    campaignType2 = request.form["campaignType2"]
+    quarter2 = request.form["quarter2"]
+    browsers2 = request.form["browsers2"]
 
     # Create a Pandas dataframe from the data.
-    df = pd.DataFrame({'Campaign Type': [campaignType],
-                       "Quarter": [quarter],
-                       "browsers": [browsers]
+    df = pd.DataFrame({'Campaign Type': [campaignType,
+                                         campaignType2],
+                       "Quarter": [quarter,
+                                   quarter2],
+                       "Browsers": [browsers,
+                                    browsers2],
+                       "Concat": [campaignType + "_" + quarter + "_" + browsers,
+                                  campaignType2 + "_" + quarter2 + "_" + browsers2]
                        })
 
     # Create a Pandas Excel writer using XlsxWriter as the engine.
