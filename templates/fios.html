@@ -2,7 +2,16 @@
 {% block content %}
 <h1>Fios Excel Builder</h1>
 <form id="fiosForm" action="/fiosForm" method="post">
-    <input type="text" id="someData" name="someData">
+    <input type="text" id="campaignType" name="campaignType" placeholder="Campaign Type">
+    <input type="text" id="quarter" name="quarter" placeholder="Quarter">
+    <input list="browsers" name="browsers">
+        <datalist id="browsers" name="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
     <input type="submit" id="submit-button">
 </form>
 {% endblock %}

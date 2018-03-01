@@ -15,9 +15,15 @@ def fios():
 
 @app.route('/fiosForm', methods=['POST'])
 def fiosForm():
-    someData = request.form["someData"]
+    campaignType = request.form["campaignType"]
+    quarter = request.form["quarter"]
+    browsers = request.form["browsers"]
+
     # Create a Pandas dataframe from the data.
-    df = pd.DataFrame({'Data': [someData]})
+    df = pd.DataFrame({'Campaign Type': [campaignType],
+                       "Quarter": [quarter],
+                       "browsers": [browsers]
+                       })
 
     # Create a Pandas Excel writer using XlsxWriter as the engine.
     writer = pd.ExcelWriter('pandas_simple.xlsx', engine='xlsxwriter')
