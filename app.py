@@ -15,22 +15,18 @@ def fios():
 
 @app.route('/fiosForm', methods=['POST'])
 def fiosForm():
-    campaignType = request.form["campaignType"]
-    quarter = request.form["quarter"]
-    browsers = request.form["browsers"]
-    campaignType2 = request.form["campaignType2"]
-    quarter2 = request.form["quarter2"]
-    browsers2 = request.form["browsers2"]
+    marketingtactic = request.form["marketingtactic"]
+    lineofbusiness = request.form["lineofbusiness"]
+    marketingcampaigntype = request.form["marketingcampaigntype"]
+    projectcode = request.form["projectcode"]
+    landingpageurl = request.form["landingpageurl"]
 
     # Create a Pandas dataframe from the data.
-    df = pd.DataFrame({'Campaign Type': [campaignType,
-                                         campaignType2],
-                       "Quarter": [quarter,
-                                   quarter2],
-                       "Browsers": [browsers,
-                                    browsers2],
-                       "Concat": [campaignType + "_" + quarter + "_" + browsers,
-                                  campaignType2 + "_" + quarter2 + "_" + browsers2]
+    df = pd.DataFrame({"Marketing Tactic": [marketingtactic],
+                       "Line of Business": [lineofbusiness],
+                       "Marketing Campaign Type": [marketingcampaigntype],
+                       "Project Code": [projectcode],
+                       "Concat": [landingpageurl + "?cmp=" + marketingtactic + "_" + lineofbusiness + "_" + marketingcampaigntype + "_" + projectcode]
                        })
 
     # Create a Pandas Excel writer using XlsxWriter as the engine.
