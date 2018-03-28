@@ -1,36 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>CRM URL/CMP Builder</h1>
-
 <form id="fiosForm" action="/fiosForm" method="post">
-    <input list="marketingtactic" name="marketingtactic" placeholder="Marketing Tactic">
-    <datalist id="marketingtactic" name="marketingtactic">
-        <option value="AFC">
-        <option value="TVA">
-        <option value="BAC">
-        <option value="DMO">
-    </datalist>
-
-    <input list="lineofbusiness" name="lineofbusiness" placeholder="Line of Business">
-    <datalist id="lineofbusiness" name="lineofbusiness">
-        <option value="CON">
-        <option value="SMB">
-    </datalist>
-
-    <input list="marketingcampaigntype" name="marketingcampaigntype" placeholder="Marketing Campaign Type">
-    <datalist id="marketingcampaigntype" name="marketingcampaigntype">
-        <option value="ACQ">
-        <option value="CRM">
-        <option value="PRS">
-        <option value="OTH">
-    </datalist>
-
-    <input type="text" id="landingpageurl" name="landingpageurl" placeholder="Landing Page URL">
-
-    <input type="text" id="projectcode" name="projectcode" placeholder="Project Code">
-
-
-<input type="submit" id="submit-button">
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Marketing Tactic</th>
+                <th>Line of Business</th>
+                <th>Marketing Campaign Type</th>
+                <th>Landing Page URL</th>
+                <th>Project Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <div class="form-row">
+                    <td>
+    {#                            <div class="form-group col-sm-12">#}
+                        <input list="marketingtactic" class="form-control" name="marketingtactic" placeholder="Marketing Tactic">
+                        <datalist id="marketingtactic" name="marketingtactic">
+                            <option value="AFC">
+                            <option value="TVA">
+                            <option value="BAC">
+                            <option value="DMO">
+                        </datalist>
+    {#                            </div>#}
+                    </td>
+                    <td>
+{#                            <div class="form-group col-sm-12">#}
+                        <input list="lineofbusiness" class="form-control" name="lineofbusiness" placeholder="Line of Business">
+                        <datalist id="lineofbusiness" name="lineofbusiness">
+                            <option value="CON">
+                            <option value="SMB">
+                        </datalist>
+{#                            </div>#}
+                    </td>
+                    <td>
+                        <input list="marketingcampaigntype" class="form-control" name="marketingcampaigntype" placeholder="Marketing Campaign Type">
+                        <datalist id="marketingcampaigntype" name="marketingcampaigntype">
+                            <option value="ACQ">
+                            <option value="CRM">
+                            <option value="PRS">
+                            <option value="OTH">
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="landingpageurl" name="landingpageurl" placeholder="Landing Page URL">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="projectcode" name="projectcode" placeholder="Project Code">
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+<button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
 </form>
+{#<input type="submit" id="submit-button">#}
 
 {% endblock %}
