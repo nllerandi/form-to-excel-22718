@@ -19,6 +19,11 @@ def fiosForm():
     lineofbusiness = request.form["lineofbusiness"]
     marketingcampaigntype = request.form["marketingcampaigntype"]
     projectcode = request.form["projectcode"]
+    marketinggroup = request.form["marketinggroup"]
+    inmarketdate = request.form["inmarketdate"]
+    platform = request.form["platform"]
+    description = request.form["description"]
+    misc = request.form["misc"]
     landingpageurl = request.form["landingpageurl"]
 
     # Create a Pandas dataframe from the data.
@@ -26,7 +31,12 @@ def fiosForm():
                        "Line of Business": [lineofbusiness],
                        "Marketing Campaign Type": [marketingcampaigntype],
                        "Project Code": [projectcode],
-                       "Concat": [landingpageurl + "?cmp=" + marketingtactic + "_" + lineofbusiness + "_" + marketingcampaigntype + "_" + projectcode]
+                       "Marketing Group": [marketinggroup],
+                       "In Market Date": [inmarketdate],
+                       "Platform": [platform],
+                       "Description": [description],
+                       "Misc": [misc],
+                       "Concat": [landingpageurl + "?cmp=" + marketingtactic + "_" + lineofbusiness + "_" + marketingcampaigntype + "_" + projectcode + "_" + marketinggroup + "_" + inmarketdate + "_" + platform + "_" + projectcode + "_" + description + "_" + misc]
                        })
 
     # Create a Pandas Excel writer using XlsxWriter as the engine.

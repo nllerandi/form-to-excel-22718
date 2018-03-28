@@ -2,15 +2,20 @@
 {% block content %}
 <h1>CRM URL/CMP Builder</h1>
 <form id="fiosForm" action="/fiosForm" method="post">
-<div class="container">
+<div class="container-fluid">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Marketing Tactic</th>
+                <th>Tactic</th>
                 <th>Line of Business</th>
-                <th>Marketing Campaign Type</th>
-                <th>Landing Page URL</th>
+                <th>Campaign Type</th>
                 <th>Project Code</th>
+                <th>Group</th>
+                <th>In Market Date</th>
+                <th>Platform</th>
+                <th>Description</th>
+                <th>Misc</th>
+                <th>Landing Page URL</th>
             </tr>
         </thead>
         <tbody>
@@ -46,10 +51,37 @@
                         </datalist>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="landingpageurl" name="landingpageurl" placeholder="Landing Page URL">
+                        <input type="text" class="form-control" id="projectcode" name="projectcode" placeholder="Project Code">
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="projectcode" name="projectcode" placeholder="Project Code">
+                        <input list="marketinggroup" class="form-control" name="marketinggroup" placeholder="Group">
+                        <datalist id="marketinggroup" name="marketinggroup">
+                            <option value="140">
+                            <option value="AA">
+                            <option value="AM">
+                            <option value="BG">
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="inmarketdate" name="inmarketdate" placeholder="In Market Date">
+                    </td>
+                    <td>
+                        <input list="platform" class="form-control" name="platform" placeholder="Platform">
+                        <datalist id="platform" name="platform">
+                            <option value="FBK">
+                            <option value="TWT">
+                            <option value="GGL">
+                            <option value="INS">
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="misc" name="misc" placeholder="Misc">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="landingpageurl" name="landingpageurl" placeholder="Landing Page URL">
                     </td>
                 </div>
             </tr>
