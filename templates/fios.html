@@ -7,8 +7,8 @@
         <thead>
             <tr>
                 <th>Tactic</th>
-                <th>Line of Business</th>
-                <th>Campaign Type</th>
+                <th>LOB</th>
+                <th>Type</th>
                 <th>Project Code</th>
                 <th>Group</th>
                 <th>In Market Date</th>
@@ -22,45 +22,38 @@
             <tr>
                 <div class="form-row">
                     <td>
-    {#                            <div class="form-group col-sm-12">#}
-                        <input list="marketingtactic" class="form-control" name="marketingtactic" placeholder="Marketing Tactic">
-                        <datalist id="marketingtactic" name="marketingtactic">
-                            <option value="AFC">
-                            <option value="TVA">
-                            <option value="BAC">
-                            <option value="DMO">
-                        </datalist>
-    {#                            </div>#}
+                        <select list="marketingtactic" class="form-control" id="marketingtactic" name="marketingtactic" placeholder="Marketing Tactic">
+                            <option value="AFC">Affiliate</option>
+                            <option value="BAC">Banner Ad</option>
+                            <option value="EMC">Email</option>
+                            <option value="OLV">Online Video</option>
+                        </select>
                     </td>
                     <td>
-{#                            <div class="form-group col-sm-12">#}
-                        <input list="lineofbusiness" class="form-control" name="lineofbusiness" placeholder="Line of Business">
-                        <datalist id="lineofbusiness" name="lineofbusiness">
-                            <option value="CON">
-                            <option value="SMB">
-                        </datalist>
-{#                            </div>#}
+                        <select list="lineofbusiness" class="form-control" id="lineofbusiness" name="lineofbusiness" placeholder="Line of Business">
+                            <option value="CON">Consumer</option>
+                            <option value="SMB">Small Business</option>
+                        </select>
                     </td>
                     <td>
-                        <input list="marketingcampaigntype" class="form-control" name="marketingcampaigntype" placeholder="Marketing Campaign Type">
-                        <datalist id="marketingcampaigntype" name="marketingcampaigntype">
-                            <option value="ACQ">
-                            <option value="CRM">
-                            <option value="PRS">
-                            <option value="OTH">
-                        </datalist>
+                        <select list="marketingcampaigntype" class="form-control" id="marketingcampaigntype" name="marketingcampaigntype" placeholder="Marketing Campaign Type">
+                            <option value="ACQ">Acquisition</option>
+                            <option value="CRM">CRM</option>
+                            <option value="PRS">Prospect</option>
+                            <option value="AWR">Awareness</option>
+                            <option value="OTH">Other</option>
+                        </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="projectcode" name="projectcode" placeholder="Project Code">
+                        <input type="text" class="form-control" id="projectcode" name="projectcode" pattern="^[0-9]{6,6}$" title="Enter 6 digit Org code" size="6" required>
                     </td>
                     <td>
-                        <input list="marketinggroup" class="form-control" name="marketinggroup" placeholder="Group">
-                        <datalist id="marketinggroup" name="marketinggroup">
-                            <option value="140">
-                            <option value="AA">
-                            <option value="AM">
-                            <option value="BG">
-                        </datalist>
+                        <select list="marketinggroup" class="form-control" id="marketinggroup" name="marketinggroup" placeholder="Group">
+                            <option value="OF">140</option>
+                            <option value="AA">AdAsia</option>
+                            <option value="AM">Ascend Marketing</option>
+                            <option value="BG">Bite Global</option>
+                        </select>
                     </td>
                     <td>
                         <input type="text" class="form-control" id="inmarketdate" name="inmarketdate" placeholder="In Market Date">
