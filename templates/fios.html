@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>CRM URL/CMP Builder</h1>
+<h1>URL/CMP Builder</h1>
+<p>*The "Note" column is for reference and is not required.</p>
 <form id="fiosForm" action="/fiosForm" method="post">
-<div class="container-fluid">
+{#<div class="container-fluid">#}
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Note</th>
                 <th>Tactic</th>
                 <th>LOB</th>
                 <th>Type</th>
@@ -21,6 +23,9 @@
         <tbody>
             <tr>
                 <div class="form-row">
+                    <td>
+                        <input type="text" class="form-control" id="note" name="note"/>
+                    </td>
                     <td>
                         <select list="marketingtactic" class="form-control" id="marketingtactic" name="marketingtactic" placeholder="Marketing Tactic">
                             <option value="AFC">Affiliate</option>
@@ -45,7 +50,7 @@
                         </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="projectcode" name="projectcode" pattern="^[0-9]{6,6}$" title="Enter 6 digit Org code" size="6" required>
+                        <input type="text" class="form-control" id="projectcode" name="projectcode" minlength="6" maxlength="6" pattern="^[0-9]{6,6}$" title="Enter 6 digit Org code" size="6" required>
                     </td>
                     <td>
                         <select list="marketinggroup" class="form-control" id="marketinggroup" name="marketinggroup" placeholder="Group">
@@ -56,31 +61,91 @@
                         </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="inmarketdate" name="inmarketdate" placeholder="In Market Date">
+                        <input type="text" class="form-control" id="inmarketdate" name="inmarketdate" pattern="^(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(19|20)\d\d$" size="8" required/>
                     </td>
                     <td>
-                        <input list="platform" class="form-control" name="platform" placeholder="Platform">
-                        <datalist id="platform" name="platform">
-                            <option value="FBK">
-                            <option value="TWT">
-                            <option value="GGL">
-                            <option value="INS">
-                        </datalist>
+                        <select list="platform" class="form-control" id="platform" name="platform">
+                            <option value="NA">NA</option>
+                            <option value="FBK">Facebook</option>
+                            <option value="TWT">Twitter</option>
+                            <option value="GGL">Google</option>
+                        </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                        <input type="text" class="form-control" id="description" name="description" maxLength="10" size="10" required>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="misc" name="misc" placeholder="Misc">
+                        <input type="text" class="form-control" id="misc" name="misc" maxLength="10" size="10" required>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="landingpageurl" name="landingpageurl" placeholder="Landing Page URL">
+                        <input type="text" class="form-control" id="landingpageurl" name="landingpageurl" pattern="https://.+" title="Must be a secure URL - use https://" required>
+                    </td>
+                </div>
+            </tr>
+{#            SECOND ROW#}
+            <tr>
+                <div class="form-row">
+                    <td>
+                        <input type="text" class="form-control" id="note2" name="note2"/>
+                    </td>
+                    <td>
+                        <select list="marketingtactic2" class="form-control" id="marketingtactic2" name="marketingtactic2">
+                            <option value="AFC">Affiliate</option>
+                            <option value="BAC">Banner Ad</option>
+                            <option value="EMC">Email</option>
+                            <option value="OLV">Online Video</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select list="lineofbusiness2" class="form-control" id="lineofbusiness2" name="lineofbusiness2">
+                            <option value="CON">Consumer</option>
+                            <option value="SMB">Small Business</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select list="marketingcampaigntype2" class="form-control" id="marketingcampaigntype2" name="marketingcampaigntype2">
+                            <option value="ACQ">Acquisition</option>
+                            <option value="CRM">CRM</option>
+                            <option value="PRS">Prospect</option>
+                            <option value="AWR">Awareness</option>
+                            <option value="OTH">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="projectcode2" name="projectcode2" minlength="6" maxlength="6" pattern="^[0-9]{6,6}$" title="Enter 6 digit Org code" size="6" required>
+                    </td>
+                    <td>
+                        <select list="marketinggroup2" class="form-control" id="marketinggroup2" name="marketinggroup2">
+                            <option value="OF">140</option>
+                            <option value="AA">AdAsia</option>
+                            <option value="AM">Ascend Marketing</option>
+                            <option value="BG">Bite Global</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="inmarketdate2" name="inmarketdate2" pattern="^(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(19|20)\d\d$" size="8" required/>
+                    </td>
+                    <td>
+                        <select list="platform2" class="form-control" id="platform2" name="platform2">
+                            <option value="NA">NA</option>
+                            <option value="FBK">Facebook</option>
+                            <option value="TWT">Twitter</option>
+                            <option value="GGL">Google</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="description2" name="description2" maxLength="10" size="10" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="misc2" name="misc2" maxLength="10" size="10" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="landingpageurl2" name="landingpageurl2" pattern="https://.+" title="Must be a secure URL - use https://" required>
                     </td>
                 </div>
             </tr>
         </tbody>
 <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
 </form>
-{#<input type="submit" id="submit-button">#}
 
 {% endblock %}
