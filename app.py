@@ -41,26 +41,25 @@ def fiosForm():
     landingpageurl2 = request.form["landingpageurl2"]
     encodedurl2 = landingpageurl2 + "?cmp=" + marketingtactic2 + "_" + lineofbusiness2 + "_" + marketingcampaigntype2 + "_" + projectcode2 + "_" + marketinggroup2 + "_" + inmarketdate2 + "_" + platform2 + "_" + projectcode2 + "_" + description2 + "_" + misc2
 
+    note3 = request.form["note3"]
+    marketingtactic3 = request.form["marketingtactic3"]
+    lineofbusiness3 = request.form["lineofbusiness3"]
+    marketingcampaigntype3 = request.form["marketingcampaigntype3"]
+    projectcode3 = request.form["projectcode3"]
+    marketinggroup3 = request.form["marketinggroup3"]
+    inmarketdate3 = request.form["inmarketdate3"]
+    platform3 = request.form["platform3"]
+    description3 = request.form["description3"]
+    misc3 = request.form["misc3"]
+    landingpageurl3 = request.form["landingpageurl3"]
+    encodedurl3 = landingpageurl3 + "?cmp=" + marketingtactic3 + "_" + lineofbusiness3 + "_" + marketingcampaigntype3 + "_" + projectcode3 + "_" + marketinggroup3 + "_" + inmarketdate3 + "_" + platform3 + "_" + projectcode3 + "_" + description3 + "_" + misc3
+
     d = {
-        "Note": [note, note2],
-        "Encoded_URL": [encodedurl, encodedurl2]
+        "Note": [note, note2, note3],
+        "Encoded_URL": [encodedurl, encodedurl2, encodedurl3]
          }
 
     df = pd.DataFrame(d, columns = ["Note", "Encoded_URL"])
-
-    # Create a Pandas dataframe from the data.
-    # df = pd.DataFrame({"Note": [note],
-    #                    "Marketing Tactic": [marketingtactic],
-    #                    "Line of Business": [lineofbusiness],
-    #                    "Marketing Campaign Type": [marketingcampaigntype],
-    #                    "Project Code": [projectcode],
-    #                    "Marketing Group": [marketinggroup],
-    #                    "In Market Date": [inmarketdate],
-    #                    "Platform": [platform],
-    #                    "Description": [description],
-    #                    "Misc": [misc],
-    #                    "Encoded URL": [landingpageurl + "?cmp=" + marketingtactic + "_" + lineofbusiness + "_" + marketingcampaigntype + "_" + projectcode + "_" + marketinggroup + "_" + inmarketdate + "_" + platform + "_" + projectcode + "_" + description + "_" + misc]
-    #                    })
 
     # Create a Pandas Excel writer using XlsxWriter as the engine.
     writer = pd.ExcelWriter('pandas_simple.xlsx', engine='xlsxwriter')

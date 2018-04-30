@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>URL/CMP Builder</h1>
-<p>*The "Note" column is for reference and is not required.</p>
-<form id="fiosForm" action="/fiosForm" method="post">
+<div class="fiosHeader">
+    <h1>Fios - URL/CMP Builder</h1>
+    <p>*The "Note" column is for reference and is not required.</p>
+</div>
 {#<div class="container-fluid">#}
+<form id="fiosForm" action="/fiosForm" method="post">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -144,8 +146,71 @@
                     </td>
                 </div>
             </tr>
+{#        THIRD ROW#}
+        <tr>
+                <div class="form-row">
+                    <td>
+                        <input type="text" class="form-control" id="note3" name="note3"/>
+                    </td>
+                    <td>
+                        <select list="marketingtactic3" class="form-control" id="marketingtactic3" name="marketingtactic3">
+                            <option value="AFC">Affiliate</option>
+                            <option value="BAC">Banner Ad</option>
+                            <option value="EMC">Email</option>
+                            <option value="OLV">Online Video</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select list="lineofbusiness3" class="form-control" id="lineofbusiness3" name="lineofbusiness3">
+                            <option value="CON">Consumer</option>
+                            <option value="SMB">Small Business</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select list="marketingcampaigntype3" class="form-control" id="marketingcampaigntype3" name="marketingcampaigntype3">
+                            <option value="ACQ">Acquisition</option>
+                            <option value="CRM">CRM</option>
+                            <option value="PRS">Prospect</option>
+                            <option value="AWR">Awareness</option>
+                            <option value="OTH">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="projectcode3" name="projectcode3" minlength="6" maxlength="6" pattern="^[0-9]{6,6}$" title="Enter 6 digit Org code" size="6" required>
+                    </td>
+                    <td>
+                        <select list="marketinggroup3" class="form-control" id="marketinggroup3" name="marketinggroup3">
+                            <option value="OF">140</option>
+                            <option value="AA">AdAsia</option>
+                            <option value="AM">Ascend Marketing</option>
+                            <option value="BG">Bite Global</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="inmarketdate3" name="inmarketdate3" pattern="^(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(19|20)\d\d$" size="8" required/>
+                    </td>
+                    <td>
+                        <select list="platform3" class="form-control" id="platform3" name="platform3">
+                            <option value="NA">NA</option>
+                            <option value="FBK">Facebook</option>
+                            <option value="TWT">Twitter</option>
+                            <option value="GGL">Google</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="description3" name="description3" maxLength="10" size="10" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="misc3" name="misc3" maxLength="10" size="10" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="landingpageurl3" name="landingpageurl3" pattern="https://.+" title="Must be a secure URL - use https://" required>
+                    </td>
+                </div>
+            </tr>
         </tbody>
 <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
 </form>
+{#    </div>#}
 
 {% endblock %}
